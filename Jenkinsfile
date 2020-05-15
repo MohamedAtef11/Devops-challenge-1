@@ -16,7 +16,7 @@ pipeline {
         }
         stage('stage two') {
             steps {
-                sh "ssh -tt -i ~/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
+                sh "ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
                 sh "ls /"
             }
         }
