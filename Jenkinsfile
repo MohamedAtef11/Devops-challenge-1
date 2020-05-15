@@ -2,20 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('stage gd3na mny kda') {
+        stage('stage one') {
             steps {
-                sh 'ls' 
+                
+                echo "my son booooy 1"
             }
         }
-        // stage('Test') {
-        //     def testResult = sh 'python ./web/tests/test.py'
-        //     if (testResult == 'Failed') {
-        //         error "test failed"
-        //     }
-        // }
-
-        stage('BuilD') {
-            sh 'docker-compose up --build' 
+        stage('stage two') {
+            steps {
+                echo "twoooooooooooooooo"
+            }
+        }
+        stage('stage three') {
+            
+            steps {
+                sh "docker-compose up --build"
+            }
         }
     }
 }
