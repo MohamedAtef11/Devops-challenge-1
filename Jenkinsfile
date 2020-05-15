@@ -16,8 +16,8 @@ pipeline {
         }
         stage('stage two') {
             steps {
-                sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
-                sh "ls /"
+                // sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
+                sh "python ./web/tests/test.py"
             }
         }
         stage('stage three') {
