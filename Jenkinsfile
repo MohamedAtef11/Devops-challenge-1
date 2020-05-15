@@ -17,6 +17,7 @@ pipeline {
         stage('stage three') {
             
             steps {
+                sh "export DOCKER_HOST=127.0.0.1"
                 sh "/usr/local/bin/docker-compose up --build"
             }
         }
