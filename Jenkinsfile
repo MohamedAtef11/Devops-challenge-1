@@ -5,12 +5,11 @@ pipeline {
         stage('stage one') {
             steps {
                 
-                echo "my son booooy 1"
+                echo "my son booooy "
             }
         }
         stage('stage two') {
             steps {
-                echo "twoooooooooooooooo"
                 sh "docker -v"
             }
         }

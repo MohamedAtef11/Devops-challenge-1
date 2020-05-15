@@ -83,6 +83,7 @@ RUN sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/doc
 RUN chmod +x /usr/local/bin/docker-compose
 
 RUN ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+RUN usermod -aG docker jenkins
 
 
 #open container Port
