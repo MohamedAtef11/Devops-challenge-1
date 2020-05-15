@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('Test') {
-            def testResult = ... // run command executing tests
+            def testResult = sh 'python ./web/tests/test.py'
             if (testResult == 'Failed') {
                 error "test failed"
             }
