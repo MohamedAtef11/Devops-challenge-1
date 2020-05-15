@@ -11,6 +11,7 @@ pipeline {
         stage('stage two') {
             steps {
                 echo "twoooooooooooooooo"
+                sh "docker -v"
             }
         }
         stage('stage three') {
