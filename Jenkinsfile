@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "$PATH:/usr/local/bin"
+        PATH = "$PATH:/usr/bin"
         }
 
     stages {
@@ -16,7 +16,8 @@ pipeline {
         }
         stage('stage two') {
             steps {
-                sh "docker -v"
+                sh "ssh ec2-user@3.21.162.162"
+                sh "ls /"
             }
         }
         stage('stage three') {
