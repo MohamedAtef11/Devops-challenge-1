@@ -9,7 +9,6 @@ pipeline {
         stage('stage one') {
             steps {
                 
-                echo "my son booooy "
                 sh "ls"
 
             }
