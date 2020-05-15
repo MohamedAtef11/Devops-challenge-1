@@ -9,7 +9,9 @@ pipeline {
         stage('stage one') {
             steps {
                 
-                echo "my son booooy-- "
+                echo "my son booooy "
+                sh "docker-compose -v"
+
             }
         }
         stage('stage two') {
