@@ -16,7 +16,7 @@ pipeline {
         }
         stage('stage two') {
             steps {
-                sh "ssh ec2-user@3.21.162.162"
+                sh "ssh -tt ec2-user@3.21.162.162"
                 sh "ls /"
             }
         }
