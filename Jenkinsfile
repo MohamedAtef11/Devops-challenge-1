@@ -7,12 +7,12 @@ pipeline {
                 sh 'ls' 
             }
         }
-        stage('Test') {
-            def testResult = sh 'python ./web/tests/test.py'
-            if (testResult == 'Failed') {
-                error "test failed"
-            }
-        }
+        // stage('Test') {
+        //     def testResult = sh 'python ./web/tests/test.py'
+        //     if (testResult == 'Failed') {
+        //         error "test failed"
+        //     }
+        // }
 
         stage('BuilD') {
             sh 'docker-compose up --build' 
