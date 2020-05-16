@@ -17,7 +17,7 @@ pipeline {
         }
         stage('stage Copy ') {
             steps {
-                    bash ''' #!/bin/bash
+                    sh ''' #!/bin/bash
 
                         if [ -d '/home/ec2-user/pro'] 
                         then
