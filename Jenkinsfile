@@ -20,7 +20,7 @@ pipeline {
                     sh ''' 
                     
                         #!/bin/bash
-                        sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
+                        sudo ssh -tt -i  /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
                         if [ -d '/home/ec2-user/pro'] 
                         then
                             echo 'Directory exist'
