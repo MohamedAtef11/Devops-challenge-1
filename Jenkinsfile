@@ -36,6 +36,7 @@ pipeline {
         stage('stage build') {
             
             steps {
+                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'cd /home/ec2-user/pro/'"
                 sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'sudo docker-compose up --build'"
             }
         }
