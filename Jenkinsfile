@@ -6,19 +6,13 @@ pipeline {
         }
 
     stages {
-        stage('stage one') {
-            steps {
-                
-                sh "ls"
-
-            }
-        }
-        stage('stage two') {
+        
+        stage('stage Test') {
             steps {
                 sh "python ./web/tests/test.py"
             }
         }
-        stage('stage three') {
+        stage('stage Build') {
             
             steps {
                 sh "sudo docker-compose up --build"
