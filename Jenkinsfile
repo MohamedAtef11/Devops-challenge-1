@@ -11,6 +11,8 @@ pipeline {
                 
                 echo "my son booooy "
                 // sh "scp -r ./* ec2-user@3.21.162.162:/"
+                sh "ls"
+                sh " pwd"
 
             }
         }
