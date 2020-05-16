@@ -6,10 +6,10 @@ pipeline {
     //     }
 
     stages {
-        stage('stage one') {
+        stage('stage test') {
             steps {
                 
-                echo "test onlyyyyyyyyyyyyyyyyyyyyyyyyy "
+                sh "python ./web/tests/test.py"
                 
 
             }
@@ -27,10 +27,10 @@ pipeline {
                 sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'pwd'"
             }
         }
-        stage('stage test') {
+        stage('stage test2') {
             
             steps {
-                sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'python /home/ec2-user/pro/web/tests/test.py'"
+                sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'python3 /home/ec2-user/pro/web/tests/test.py'"
             }
         }
         stage('stage build') {
