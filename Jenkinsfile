@@ -10,14 +10,14 @@ pipeline {
             steps {
                 
                 echo "my son booooy "
-                sh "ls"
+                // sh "scp -r ./* ec2-user@3.21.162.162:/"
 
             }
         }
         stage('stage two') {
             steps {
-                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'ls /'"
-                
+                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'ls '"
+                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'pwd'"
             }
         }
         // stage('stage three') {
