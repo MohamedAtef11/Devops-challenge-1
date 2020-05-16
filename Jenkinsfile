@@ -30,13 +30,13 @@ pipeline {
         stage('stage test') {
             
             steps {
-                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162'python /home/ec2-user/pro/web/tests/test.py'"
+                sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'python /home/ec2-user/pro/web/tests/test.py'"
             }
         }
         stage('stage build') {
             
             steps {
-                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162'sudo docker-compose up --build'"
+                sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'sudo docker-compose up --build'"
             }
         }
     }
