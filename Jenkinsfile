@@ -9,12 +9,12 @@ pipeline {
         stage('stage one') {
             steps {
                 
-                echo "my son booooy "
+                echo "test onlyyyyyyyyyyyyyyyyyyyyyyyyy "
                 
 
             }
         }
-        stage('stage two') {
+        stage('stage Copy ') {
             steps {
                  sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 ' mkdir /home/ec2-user/pro'"
 
@@ -27,12 +27,17 @@ pipeline {
                 sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'pwd'"
             }
         }
-        // stage('stage three') {
+        stage('stage test') {
             
-        //     steps {
-        //         sh "python ./web/tests/test.py"
-        //         sh "sudo docker-compose up --build"
-        //     }
-        // }
+            steps {
+                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162'python /home/ec2-user/pro/web/tests/test.py'"
+            }
+        }
+        stage('stage build') {
+            
+            steps {
+                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162'sudo docker-compose up --build'"
+            }
+        }
     }
 }
