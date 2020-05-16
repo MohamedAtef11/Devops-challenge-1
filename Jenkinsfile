@@ -12,7 +12,7 @@ pipeline {
                 sh "python ./web/tests/test.py"
             }
         }
-        stage('stage Build') {
+        stage('stage build') {
             
             steps {
                 sh "sudo docker-compose up --build"
