@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 ' mkdir /home/ec2-user/pro'"
 
-                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162' scp -r /var/lib/jenkins/workspace/test1/* /home/ec2-user/pro'"
+                sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'scp -r /var/lib/jenkins/workspace/test1/* /home/ec2-user/pro'"
 
                 
                 sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'ls /home/ec2-user/pro'"
