@@ -17,14 +17,16 @@ pipeline {
         }
         stage('stage Copy ') {
             steps {
-                    sh ''' #!/bin/bash
-
+                    sh ''' 
+                    
+                        #!/bin/bash
+                        sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162"
                         if [ -d '/home/ec2-user/pro'] 
                         then
                             echo 'Directory exist'
                         else
                             echo 'Directory not exist'
-                        fi
+                        fi"
                     '''
                 // sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 ' mkdir /home/ec2-user/pro'"
                 sh "sudo rsync -P -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/* ec2-user@3.21.162.162:/home/ec2-user/pro"
