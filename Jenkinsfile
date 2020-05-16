@@ -1,22 +1,31 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "$PATH:/usr/local/bin"
-        }
+    // environment {
+    //     PATH = "$PATH:/usr/local/bin"
+    //     }
 
     stages {
-        
-        stage('stage Test') {
+        stage('stage one') {
             steps {
-                sh "python ./web/tests/test.py"
+                
+                echo "my son booooy "
+                sh "ls"
+
             }
         }
-        stage('stage build') {
+        stage('stage two') {
+            steps {
+                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.21.162.162 'ls /'"
+                
+            }
+        }
+        // stage('stage three') {
             
-            steps {
-                sh "sudo docker-compose up --build"
-            }
-        }
+        //     steps {
+        //         sh "python ./web/tests/test.py"
+        //         sh "sudo docker-compose up --build"
+        //     }
+        // }
     }
 }
