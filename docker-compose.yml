@@ -7,11 +7,11 @@ services:
     expose:
       - "8000"
     env_file:
-      - ./.env
+      - /home/ec2-user/pro/.env
     environment:
       - REDIS_HOST=redis
     volumes:
-      - ./web/static:/pro/web/static
+      - /home/ec2-user/pro/web/static:/pro/web/static
    
     
   nginx:
@@ -20,7 +20,7 @@ services:
     ports:
       - "10080:80"
     volumes:
-      - ./web/static:/static
+      - /home/ec2-user/pro/web/static:/static
     
   
   redis:
