@@ -16,13 +16,13 @@ pipeline {
             steps {
                 sh "sudo docker login -u '$Dockerhub_username' -p '$Dockerhub_password'"
 
-                sh "sudo docker build -t muhammadatef/project-nginx:latest -t muhammadatef/project-nginx:\$(git rev-parse HEAD:0:7) -f ./nginx/Dockerfile ./nginx"
+                sh "sudo docker build -t muhammadatef/project-nginx:latest -t muhammadatef/project-nginx:\$(git rev-parse HEAD) -f ./nginx/Dockerfile ./nginx"
                 sh "sudo docker push muhammadatef/project-nginx:latest" 
-                sh "sudo docker push muhammadatef/project-nginx:\$(git rev-parse HEAD:0:7)" 
+                sh "sudo docker push muhammadatef/project-nginx:\$(git rev-parse HEAD)" 
 
-                sh "sudo docker build -t muhammadatef/project-web:latest -t muhammadatef/project-web:\$(git rev-parse HEAD:0:7) -f ./web/Dockerfile ./web"
+                sh "sudo docker build -t muhammadatef/project-web:latest -t muhammadatef/project-web:\$(git rev-parse HEAD) -f ./web/Dockerfile ./web"
                 sh "sudo docker push muhammadatef/project-web:latest" 
-                sh "sudo docker push muhammadatef/project-web:\$(git rev-parse HEAD:0:7)" 
+                sh "sudo docker push muhammadatef/project-web:\$(git rev-parse HEAD)" 
 
                 
             }
