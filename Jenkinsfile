@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build and push images ') {
             steps {
-                sh "sudo docker login -u '$Dockerhub-username' -p '$Dockerhub-password'"
+                sh "sudo docker login -u '$Dockerhub_username' -p '$Dockerhub_password'"
 
                 sh "sudo docker build -t muhammadatef/project-nginx:latest -t muhammadatef/project-nginx:\$(git rev-parse HEAD) -f ./nginx/Dockerfile ./nginx"
                 sh "sudo docker push muhammadatef/project-nginx:latest" 
