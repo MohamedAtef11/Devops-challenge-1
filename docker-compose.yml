@@ -4,9 +4,6 @@ services:
   web:
     restart: always
     image: muhammadatef/project-nginx:latest
-    build:
-      context: ./nginx
-      dockerfile: ./nginx/Dockerfile
     expose:
       - "8000"
     env_file:
@@ -20,9 +17,6 @@ services:
   nginx:
     restart: always
     image: muhammadatef/project-web:latest
-    build:
-      context: ./web
-      dockerfile: ./web/Dockerfile
     ports:
       - "10080:80"
     volumes:
