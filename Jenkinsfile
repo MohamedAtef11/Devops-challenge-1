@@ -1,9 +1,11 @@
 pipeline {
     agent any
 
-    // environment {
-    //     PATH = "$PATH:/usr/local/bin"
-    //     }
+    environment {
+        
+            SHA=$(git rev-parse HEAD)
+        }
+
 
     stages {
         stage('Build local') {
@@ -16,12 +18,27 @@ pipeline {
                 sh "sudo docker run build-web:1.0 python tests/test.py "
             }
         }
-        stage('Copy project to server') {
+        stage('Build and push images ') {
             steps {
-                sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.22.235.5 '[ ! -d '/home/ec2-user/pro' ] && mkdir /home/ec2-user/pro;echo Directory-exist'"
-                sh "sudo rsync -P -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/* ec2-user@3.22.235.5:/home/ec2-user/pro"
-                sh "sudo scp  -i /home/matef/Downloads/dondon-monitor.pem -r /var/lib/jenkins/workspace/test1/.env ec2-user@3.22.235.5:/home/ec2-user/pro"
+                sh "sudo docker build -t muhammadatef/project-nginx:latest -t muhammadatef/project-nginx:$SHA -f ./nginx/Dockerfile ./nginx"
+                sh "sudo docker push muhammadatef/project-nginx:latest" 
+                sh "sudo docker push muhammadatef/project-nginx:$SHA" 
+
+                sh "sudo docker build -t muhammadatef/project-web:latest -t muhammadatef/project-web:$SHA -f ./web/Dockerfile ./web"
+                sh "sudo docker push muhammadatef/project-web:latest" 
+                sh "sudo docker push muhammadatef/project-web:$SHA" 
+
                 
+            }
+        }
+
+         stage('copy docker-compose file to AWS server') {
+            
+            steps {
+
+                sh "sudo rsync -P -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/docker-compose.yml ec2-user@3.22.235.5:/home/ec2-user/pro"
+                sh "sudo rsync -P -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/.env ec2-user@3.22.235.5:/home/ec2-user/pro"
+                sh "sudo rsync -P -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/web/static ec2-user@3.22.235.5:/home/ec2-user/pro"
             }
         }
         
