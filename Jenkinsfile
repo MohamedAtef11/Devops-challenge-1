@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "sudo docker run build-web:1.0 python test.py "
+                sh "sudo docker run build-web:1.0 python tests/test.py "
             }
         }
         // stage(' Copy project to server') {
