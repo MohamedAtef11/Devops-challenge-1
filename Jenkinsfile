@@ -8,12 +8,12 @@ pipeline {
     stages {
         stage('Build local') {
             steps {
-                sh "docker build -t build-web:1.0 ./web"
+                sh "sudo docker build -t build-web:1.0 ./web"
             }
         }
         stage('Test') {
             steps {
-                sh "docker run build-web:1.0 python test.py "
+                sh "sudo docker run build-web:1.0 python test.py "
             }
         }
         // stage(' Copy project to server') {
