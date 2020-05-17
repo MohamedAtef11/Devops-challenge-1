@@ -25,7 +25,7 @@ pipeline {
             }
         }
         
-        stage('Deploy on aws server') {
+        stage('Deploy on AWS server') {
             
             steps {
                 sh "sudo ssh -tt -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.22.235.5 'sudo docker-compose -f /home/ec2-user/pro/docker-compose.yml  down'"
