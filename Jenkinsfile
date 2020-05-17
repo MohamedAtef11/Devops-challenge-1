@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh "docker build -t build-web:1.0 ./web"
             }
+        }
         stage('Test') {
             steps {
                 sh "docker run build-web:1.0 python test.py "
