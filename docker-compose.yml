@@ -11,7 +11,7 @@ services:
     environment:
       - REDIS_HOST=redis
     volumes:
-      - /home/ec2-user/pro/web/static:/web/static
+      - /home/ec2-user/pro/web/:/web
    
     
   nginx:
