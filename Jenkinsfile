@@ -34,7 +34,7 @@ pipeline {
                 sh "sudo ssh -i /home/matef/Downloads/dondon-monitor.pem ec2-user@3.22.235.5 '[ ! -d '/home/ec2-user/pro' ] && mkdir /home/ec2-user/pro;echo Directory-exist'"
                 sh "sudo rsync -rv --update -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/.env ec2-user@3.22.235.5:/home/ec2-user/pro"
                 sh "sudo rsync -rv --update -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r /var/lib/jenkins/workspace/test1/docker-compose.yml ec2-user@3.22.235.5:/home/ec2-user/pro"
-                sh "sudo rsync -rv --update -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r -p /var/lib/jenkins/workspace/test1/web/static/ ec2-user@3.22.235.5:/home/ec2-user/pro" 
+                sh "sudo rsync -rv --update -e 'ssh -i /home/matef/Downloads/dondon-monitor.pem' -r -p /var/lib/jenkins/workspace/test1/web/static/ ec2-user@3.22.235.5:/home/ec2-user/pro/web" 
             }
         }
         
