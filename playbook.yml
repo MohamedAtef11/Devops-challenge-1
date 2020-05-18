@@ -28,6 +28,27 @@
         dest: /usr/bin/docker-compose
         mode: 0755
 
+    - name: install system packages
+      become: true
+      yum:
+        name:
+          - python3
+          - python3-devel
+          - python3-pip
+        state: present
+
+    - name: install Python packages
+      become: true
+      pip:
+        name:
+          - virtualenv
+        state: present
+        executable: pip3
+
+    - name: set system facts
+      set_fact:
+        python3_command: python3.6
+
     # - name: Check that you can connect (GET) to a page and it returns a status 200
     #   uri:
     #     url: https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)
